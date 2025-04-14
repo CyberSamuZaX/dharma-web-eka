@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>බෞද්ධ ධර්මය | මුල් පිටුව</title>
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D2B48C;
+            --accent-color: #4CAF50;
+            --text-color: #333;
+            --light-bg: #FFF8E1;
+            --dark-bg: #5D4037;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans Sinhala', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        nav {
+            background-color: var(--dark-bg);
+            display: flex;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        nav ul li {
+            margin: 0 0.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background-color: var(--accent-color);
+        }
+        
+        .hero {
+            background-image: url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .feature {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .feature h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .quote-section {
+            background-color: var(--secondary-color);
+            padding: 3rem 1rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .quote {
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+            font-size: 1.25rem;
+        }
+        
+        .latest-articles {
+            margin-bottom: 2rem;
+        }
+        
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .article-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .article-image {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .article-content {
+            padding: 1.5rem;
+        }
+        
+        .article-title {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .read-more {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icon {
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .hero {
+                height: 300px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.25rem 0;
+            }
+        }
+        
+        /* Mobile menu */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            nav.active ul {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">බෞද්ධ ධර්මය</div>
+        <p>නිවන් මග පෙන්වන තොරතුරු හා මාර්ගෝපදේශය</p>
+        <button class="menu-toggle" id="menuToggle">☰</button>
+    </header>
+    
+    <nav id="mainNav">
+        <ul>
+            <li><a href="#" class="active">මුල් පිටුව</a></li>
+            <li><a href="#">ධර්මය</a></li>
+            <li><a href="#">සූත්‍ර</a></li>
+            <li><a href="#">භාවනා</a></li>
+            <li><a href="#">ඉගෙනුම</a></li>
+            <li><a href="#">ඉතිහාසය</a></li>
+            <li><a href="#">ප්‍රශ්න සහ පිළිතුරු</a></li>
+            <li><a href="#">අප අමතන්න</a></li>
+        </ul>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>නිවන් මග පෙන්වන බෞද්ධ ධර්මය</h1>
+            <p>සත්‍ය, ආදරය සහ ප්‍රඥාව තුළින් මිනිසා නිවැරදි මාර්ගයට යොමු කරයි</p>
+        </div>
+    </section>
+    
+    <main>
+        <section class="features">
+            <div class="feature">
+                <div class="feature-icon">🪷</div>
+                <h3>ධර්මය ඉගෙන ගන්න</h3>
+                <p>බුද්ධ ධර්මයේ මූලික සිද්ධාන්ත, චතුරාර්ය සත්‍යය, අෂ්ටාංගික මාර්ගය සහ තවත් බොහෝ දේ පිළිබඳ දැනුම ලබා ගන්න.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🧘</div>
+                <h3>භාවනා පුහුණුව</h3>
+                <p>සතිමත් භාවය වර්ධනය කිරීම සඳහා විවිධ භාවනා ක්‍රම ඉගෙන ගන්න සහ ඔබේ දෛනික ජීවිතයට ඒවා යොදා ගන්නේ කෙසේද.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📚</div>
+                <h3>සූත්‍ර ශාස්ත්‍ර</h3>
+                <p>බුදුන් වහන්සේගේ මූලික දේශනා සහ ඒවායේ අන්තර්ගත වන ගැඹුරු ධර්ම කරුණු හදාරන්න.</p>
+            </div>
+        </section>
+        
+        <section class="quote-section">
+            <div class="quote">
+                <p>"මනස යනු සියලු ධර්මයන්ගේ පෙරගමන්කරු වේ. මනස ප්‍රධාන වේ. සියල්ල මනසින් නිර්මාණය වේ."</p>
+                <p>- ධම්මපදය</p>
+            </div>
+        </section>
+        
+        <section class="latest-articles">
+            <h2>නවතම ධර්ම ලිපි</h2>
+            <div class="article-grid">
+                <div class="article-card">
+                    <div class="article-image" style="background-image: url('/api/placeholder/400/300');"></div>
+                    <div class="article-content">
+                        <h3 class="article-title">චතුරාර්ය සත්‍යය ගැන සරල හැඳින්වීමක්</h3>
+                        <p>බුදුන් වහන්සේ විසින් දේශනා කරන ලද චතුරාර්ය සත්‍යය නම් වූ මූලික ඉගැන්වීම් හතර ගැන සරල විග්‍රහයක්...</p>
+                        <a href="#" class="read-more">තව කියවන්න</a>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-image" style="background-image: url('/api/placeholder/400/300');"></div>
+                    <div class="article-content">
+                        <h3 class="article-title">දෛනික ජීවිතයට භාවනාව යොදා ගන්නේ කෙසේද?</h3>
+                        <p>දෛනික ජීවිතයේ අභියෝග මධ්‍යයේ වුවද සිත සමාහිත කර ගැනීමට උපකාරී වන ප්‍රායෝගික භාවනා ක්‍රම...</p>
+                        <a href="#" class="read-more">තව කියවන්න</a>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-image" style="background-image: url('/api/placeholder/400/300');"></div>
+                    <div class="article-content">
+                        <h3 class="article-title">කර්මය සහ පුනරුත්පත්තිය</h3>
+                        <p>කර්මය සහ පුනරුත්පත්තිය පිළිබඳ බෞද්ධ ඉගැන්වීම් ගැන ගැඹුරු අවබෝධයක්...</p>
+                        <a href="#" class="read-more">තව කියවන්න</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>බෞද්ධ ධර්මය</h3>
+                <p>නිවන් මග පෙන්වන තොරතුරු හා මාර්ගෝපදේශය</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon">𓇼</a>
+                    <a href="#" class="social-icon">𓅷</a>
+                    <a href="#" class="social-icon">𓅓</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>ප්‍රයෝජනවත් සබැඳි</h3>
+                <ul class="footer-links">
+                    <li><a href="#">මුල් පිටුව</a></li>
+                    <li><a href="#">ධර්මය</a></li>
+                    <li><a href="#">සූත්‍ර</a></li>
+                    <li><a href="#">භාවනා</a></li>
+                    <li><a href="#">අප අමතන්න</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>අප අමතන්න</h3>
+                <address>
+                    ඊමේල්: info@buddhistdharma.lk<br>
+                    දුරකථන: +94 XX XXX XXXX<br>
+                    ලිපිනය: බෞද්ධ ධර්මය, කොළඹ, ශ්‍රී ලංකාව
+                </address>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 බෞද්ධ ධර්මය. සියලුම හිමිකම් ඇවිරිණි.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+        
+        // Current year for copyright
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentYear = new Date().getFullYear();
+            document.querySelector('.copyright p').innerHTML = `&copy; ${currentYear} බෞද්ධ ධර්මය. සියලුම හිමිකම් ඇවිරිණි.`;
+        });
+    </script>
+</body>
+</html>
